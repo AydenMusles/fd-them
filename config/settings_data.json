@@ -1802,7 +1802,7 @@
     "social_share_fancy_enabled": false,
     "show_multiple_currencies": true,
     "currency_format": "money_with_currency_format",
-    "supported_currencies": "USD CAD GBP EUR TWD PHP",
+    "supported_currencies": "USD CAD GBP AUD EUR TWD PHP",
     "default_currency": "USD",
     "checkout_header_image": "",
     "checkout_logo_image": "",
@@ -1889,8 +1889,8 @@
             "settings": {
               "title": "Get in touch",
               "show_contact": true,
-              "phone": "",
-              "contact_text": "freediverafins@gmail.com",
+              "phone": "(888) 682-4473",
+              "contact_text": "info@freedivera.com",
               "contact_link": "mailto:freediverafins@gmail.com",
               "address": "",
               "show_social": true
@@ -1981,13 +1981,23 @@
           "1481097984062": {
             "type": "related_products",
             "settings": {
-              "title": "Related products",
+              "title": "People also viewed",
               "button_label": "View More"
+            }
+          },
+          "1496373876339": {
+            "type": "product_collection",
+            "settings": {
+              "title": "Check our best sellers",
+              "button_label": "View more",
+              "button_link": "",
+              "collection": "top-of-the-line"
             }
           }
         },
         "block_order": [
-          "1481097984062"
+          "1481097984062",
+          "1496373876339"
         ],
         "settings": {
           "thumbnails_placement": "below",
