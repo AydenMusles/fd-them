@@ -4,15 +4,43 @@
 
       <div class="featured-hero background-alignment-{{ section.settings.alignment }} size-{{ section.settings.hero_size }}">
         <div class="content-box">
-          {% if section.settings.title != blank %}
-            <h2>{{ section.settings.title | escape }}</h2>
-          {% endif %}
-          {% if section.settings.text != blank %}
-            <div class="rte">{{ section.settings.text }}</div>
-          {% endif %}
-          {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <a href="{{ section.settings.button_link }}" class="button outline">{{ section.settings.button_label | escape }}</a>
-          {% endif %}
+          {% form 'contact' %}
+          
+            {% if form.posted_successfully? %}
+              <h2>Sent!</h2>
+              <div class="successForm feedback">
+                <span>We'll get back to you ASAP. Meanwhile, you can: </span>
+              </div>
+              <div class="successForm call-to-action">
+                <a href="blogs/freediving-blog" class="button outline contact">GET IDEAS FROM OUR BLOG</a>
+                <span>or</span>
+                <a href="pages/contact" class="button outline contact">ASK ANOTHER QUESTION</a>
+              </div>
+
+            {% else %}
+
+              {% if section.settings.title != blank %}
+                <h2>{{ section.settings.title | escape }}</h2>
+              {% endif %}
+              {% if section.settings.text != blank %}
+                <div class="rte">{{ section.settings.text }}</div>
+              {% endif %}
+              {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+                <a href="{{ section.settings.button_link }}" class="button outline">{{ section.settings.button_label | escape }}</a>
+              {% endif %}
+
+              <div class="input-row">
+                <div class="horizontal-inputs">
+                  <input type="email" id="ContactFormEmail" class="input-group-field input-email" name="contact[email]" placeholder="your@email.com" autocorrect="off" autocapitalize="off">
+                  <input type="text" id="ContactFormMessage" class="input-group-field input-message" name="contact[body]" placeholder="your question" autocorrect="off" autocapitalize="off">
+                  <button type="submit" id="subscribe" class="button outline contact">ASK NOW</button>
+                </div>
+              </div>
+
+            {% endif %}
+
+          {% endform %}
+
         </div>
         {% if section.settings.image == blank %}
           <div class="placeholder-background">
