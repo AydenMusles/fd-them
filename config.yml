@@ -1,0 +1,9 @@
+development:
+  password: b3ebf58280ed2d8504a1b1215e1204c9
+  theme_id: "183830995"
+  store: lovefreediving.myshopify.com
+production:
+  password: b3ebf58280ed2d8504a1b1215e1204c9
+  theme_id: "183047123"
+  store: lovefreediving.myshopify.com
+  timeout: 60s
