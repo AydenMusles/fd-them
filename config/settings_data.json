@@ -1830,7 +1830,7 @@
               "title": "We ship worldwide! Get free shipping with orders of 2 or more fins",
               "link": "",
               "color_background": "#442778",
-              "color_text": "#FFFFFF",
+              "color_text": "#ffffff",
               "show_for": "both",
               "bar_size": "large",
               "bar_placement": "top",
@@ -2254,9 +2254,9 @@
           "text": "<p><\/p>\r\n<p>Not sure which fins are right for you? Drop us a note! Whatever you need to know, we're here to help.<\/p>\r\n<p><\/p>",
           "hero_size": "x-small",
           "button_label": "Ask now",
-          "button_link": "https:\/\/freedivera.com\/pages\/contact",
+          "button_link": "",
           "color_overlay": "#442778",
-          "color_overlay_text": "#FFFFFF",
+          "color_overlay_text": "#ffffff",
           "color_overlay_alpha": "1.0"
         }
       },
@@ -2307,7 +2307,7 @@
           "text_placement": "over",
           "color_overlay": "#4f4f4f",
           "color_overlay_hover": "#000000",
-          "color_overlay_text": "#FFFFFF",
+          "color_overlay_text": "#ffffff",
           "color_overlay_alpha": "0.3",
           "zoom": true
         }
