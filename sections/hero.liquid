@@ -25,9 +25,10 @@
               {% if section.settings.text != blank %}
                 <div class="rte">{{ section.settings.text }}</div>
               {% endif %}
-              {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-                <a href="{{ section.settings.button_link }}" class="button outline">{{ section.settings.button_label | escape }}</a>
-              {% endif %}
+
+              <div id="contact-errors" style="display: none;">
+                {{ form.errors | default_errors }}
+              </div>
 
               <div class="input-row">
                 <div class="horizontal-inputs">
@@ -52,6 +53,16 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+window.addEventListener('DOMContentLoaded', function() {
+  let urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.get('form_type') === 'contact') {
+    console.log('here!')
+    $('#contact-errors').css('display', 'block');
+  }
+});
+</script>
 
 <style>
   .hero-{{ section.id }} .content-box {
