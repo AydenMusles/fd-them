@@ -1,6 +1,9 @@
 <!-- /snippets/newsletter-subscribe.liquid -->
 {% form 'customer' %}
-  {{ form.errors | default_errors }}
+  <div id="customer-errors" style="display: none;">
+    {{ form.errors | default_errors }}
+  </div>
+
 
   {% if form.posted_successfully? %}
     <p>{{ 'password.general.thanks_title' | t }}</p>
@@ -16,3 +19,12 @@
     </div>
   {% endif %}
 {% endform %}
+
+<script type="text/javascript">
+  window.addEventListener('DOMContentLoaded', function() {
+    let urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.get('form_type') === 'customer') {
+      $('#customer-errors').css('display', 'block');
+    }
+  });
+</script>
