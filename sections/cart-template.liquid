@@ -35,6 +35,9 @@
                 Loop through products in the cart
               {% endcomment %}
               {% for item in cart.items %}
+                {% if item.product.tags contains "Fins" or item.product.tags contains "monofins" %}
+                  {% assign hasFins = hasFins | plus: 1 %}
+                {% endif %}
                 <div class="cart-item">
                   <div class="grid">
                     <div class="td cart-item-product">
@@ -112,6 +115,20 @@
               {% endfor %}
             </div>
 
+            <div class="cart-shipping-message ">
+              <p class="subtotal">
+                <span class="label">{{ 'cart.general.subtotal' | t }}</span>
+                <span class="price money">{{ cart.total_price | money }}</span>
+              </p>
+              {% if cart.total_price >= 50000 or hasFins >= 2 %}
+                <span>{{section.settings.shipping_msg}}</span>
+              {% elsif hasFins < 2 %}
+                <span>{{section.settings.shipping_fin}}</span>
+              {% else %}
+                <span>{{section.settings.shipping_default}}</span>
+              {% endif %}
+            </div>
+
             <div class="grid">
               <div class="cart-notes">
                 {% comment %}
@@ -125,10 +142,7 @@
                 {% endif %}
               </div>
               <div class="cart-checkout">
-                <p class="subtotal">
-                  <span class="label">{{ 'cart.general.subtotal' | t }}</span>
-                  <span class="price money">{{ cart.total_price | money }}</span>
-                </p>
+
                 <p class="shipping-at-checkout"><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
                 {% if settings.show_multiple_currencies %}
                 <p class="currency-at-checkout"><em>{{ 'cart.general.currency_at_checkout_html' | t: shop_name: shop.name, shop_currency: shop.currency }}</em></p>
@@ -206,6 +220,28 @@
       "id": "variant_rollover",
       "label": "Show variant image on rollover",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Shipping Messages"
+    },
+    {
+      "type": "text",
+      "id": "shipping_msg",
+      "label": "Apply free shipping",
+      "default": "Right on! You qualify for free shipping!"
+    },
+    {
+      "type": "text",
+      "id": "shipping_fin",
+      "label": "Has at least 1 fin",
+      "default": "Psst! Add another fin for a buddy to get free shipping"
+    },
+    {
+      "type": "text",
+      "id": "shipping_default",
+      "label": "Default",
+      "default": "Psst! Spend over $500 or add more than 2 fins for free shipping"
     }
   ]
 }
