@@ -36,7 +36,7 @@
               {% endcomment %}
               {% for item in cart.items %}
                 {% if item.product.tags contains "Fins" or item.product.tags contains "monofins" %}
-                  {% assign hasFins = hasFins | plus: 1 %}
+                  {% assign hasFins = hasFins | plus: item.quantity %}
                 {% endif %}
                 <div class="cart-item">
                   <div class="grid">
@@ -234,14 +234,14 @@
     {
       "type": "text",
       "id": "shipping_fin",
-      "label": "Has at least 1 fin",
+      "label": "Less than 2 fins",
       "default": "Psst! Add another fin for a buddy to get free shipping"
     },
     {
       "type": "text",
       "id": "shipping_default",
       "label": "Default",
-      "default": "Psst! Spend over $500 or add more than 2 fins for free shipping"
+      "default": "Psst! Spend over $500 or add 2 fins for free shipping"
     }
   ]
 }
