@@ -1913,7 +1913,7 @@
           "1481011869014-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/hero_slide_1.png",
+              "image": "shopify:\/\/shop_images\/best-mermaid-monofin_1.jpg",
               "link": "",
               "title": "",
               "text": "",
@@ -2166,7 +2166,10 @@
           "show_notes": true,
           "show_vendors": true,
           "extra_featured_products": "",
-          "variant_rollover": true
+          "variant_rollover": true,
+          "shipping_msg": "Right on! You qualify for free shipping!",
+          "shipping_fin": "Psst! Add another fin for a buddy to get free shipping",
+          "shipping_default": "Psst! Spend over $500 or add 2 fins for free shipping"
         }
       },
       "1482079506908": {
@@ -2183,7 +2186,7 @@
       "1482134273124": {
         "type": "instagram",
         "settings": {
-          "title": "Get inspired with our Instagram :-)",
+          "title": "Join our 4k+ fans on Instagram :-)",
           "show_button": true,
           "button_label": "Follow us on Instagram",
           "access_token": "4184743334.520c083.629f63963453448ea28d46829222180e",
