@@ -1753,6 +1753,9 @@ button.icon-text, {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-quote:before {
+  content: "\e900";
+}
 .icon-search:before {
     content: "\f002";
 }
@@ -8774,4 +8777,71 @@ button {
 
 .contact-horizontal-form {
   padding: 20px 0;
+}
+
+/*================ Testimonials ================*/
+.testimonials {
+  padding: $verticalContainerPadding 0;
+  background-color: #fafafa;
+
+  {% if settings.homepage_show_borders %}
+  border-bottom: 1px solid mix($primaryTextColor, $primaryBackgroundColor, 10%);
+  {% endif %}
+
+  &.full-width {
+    .wrapper {
+      @include outer-container;
+    }
+  }
+  .wrapper {
+    @include outer-container($siteWidth);
+    padding: 0;
+    margin-bottom: $verticalContainerPadding;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 20px;
+    h4 {
+      @extend .h2;
+      margin-bottom: 0;
+    }
+  }
+  cite {
+    &:before {
+      content: '\2014 \0020';
+    }
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .quotes {
+    position: relative;
+    @include grid(true);
+    text-align: center;
+
+    .box {
+      @include grid-item(4);
+
+      @include mediaQuery($max, $tablet) {
+        @include grid-item(6);
+      }
+      @include mediaQuery($max, $mobile) {
+        @include grid-item(12);
+      }
+      .icon-quote {
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      blockquote p a {
+        color: $primaryAccentColor;
+        &:hover,
+        &:focus {
+          color: $primaryHoverColor;
+        }
+      }
+    }
+
+  }
 }
