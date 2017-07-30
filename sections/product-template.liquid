@@ -88,6 +88,8 @@
             {% comment %}
               ID addToCartForm is a selector for the ajax cart plugin
             {% endcomment %}
+            {% include 'while-supplies-last' %}
+
             <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical product-form product-form-{{ section.id }}" data-section="{{ section.id }}">
 
               <div class="product-title">
