@@ -151,7 +151,16 @@
                 <input type="submit" name="checkout" class="button solid" value="{{ 'cart.general.checkout' | t }}">
 
                 {% if additional_checkout_buttons %}
-                  <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+                  {% unless section.settings.inline_additional_checkout %}
+                    <p style="margin:0.9375em 0"><em>{{section.settings.additional_checkout_msg}}</em></p>
+                  {% endunless %}
+                  <div class="additional-checkout-buttons">
+                    {% if section.settings.inline_additional_checkout %}
+                      <em>{{section.settings.additional_checkout_msg}}</em>
+                    {% endif %}
+
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
                 {% endif %}
               </div>
             </div>
@@ -242,6 +251,22 @@
       "id": "shipping_default",
       "label": "Default",
       "default": "Psst! Spend over $500 or add 2 fins for free shipping"
+    },
+    {
+      "type": "header",
+      "content": "Aditional Checkout Message"
+    },
+    {
+      "type": "text",
+      "id": "additional_checkout_msg",
+      "label": "Additional Checout message",
+      "default": "Checkout faster with"
+    },
+    {
+      "type": "checkbox",
+      "id": "inline_additional_checkout",
+      "label": "Inline checkout additional message",
+      "default": true
     }
   ]
 }
